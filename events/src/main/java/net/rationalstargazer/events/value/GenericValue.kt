@@ -1,8 +1,8 @@
 package net.rationalstargazer.events.value
 
 /**
- * Represents `strict` value source which is a source [value source][RStaGenericValue] that notifies about all changes soon after change is happened.
- * Strict value sources always pass the value of [value][RStaGenericValue.value] at the moment of event as `eventData` parameter
+ * Represents `strict` value source which is a [value source][RStaGenericValue] that notifies about all changes soon after change is happened.
+ * Strict value sources always pass the [value][RStaGenericValue.value] as it was at the moment of event as `eventData` parameter
  * (thus value sources always have the same type for their `Value` and `Event` type parameters).
  *
  * Strict value sources are sources you want to listen to if every value is important no matter how often they are changed.
@@ -14,7 +14,7 @@ package net.rationalstargazer.events.value
 interface RStaValue<out T> : RStaGenericValue<T, T>
 
 /**
- * Represents `relaxed` (or `lazy`) value source which is a source that notifies about its changes only when it sees it is appropriate.
+ * Represents `relaxed` (or `lazy`) [value source][RStaGenericValue] which is a source that notifies about its changes only when it sees it is appropriate.
  * Not every change of `value` will trigger a notification of listeners.
  *
  * Relaxed (lazy) value sources are often sources that represent continuous values that change smoothly over time
@@ -25,7 +25,7 @@ interface RStaValue<out T> : RStaGenericValue<T, T>
  *
  * Another example is a value that reflects some complicated parameter that you want to be evaluated lazily.
  *
- * For example `val squareOfVeryComplexFigure: RStaValueSource<Double>` can use resource-consuming formula.
+ * For example `val squareOfVeryComplexFigure: RStaValueSource<Double>` can use resource-consuming logic.
  * Instead of having to calculate the `value` every time the underlying figure has changed its shape
  * (possibly dozen of times per second in the case of animation)
  * it only have to calculate the `value` on demand when it is really needed (for example one time per second).
@@ -41,18 +41,19 @@ typealias RStaValueSource<T> = RStaGenericValue<T, Any?>
  *
  * Standard implementations are:
  *
- * [RStaValueDispatcher] - mutable value
+ * [RStaValueDispatcher] - value that is directly controlled by the owner
  *
  * [RStaDynamicValue] - value which is computed at every reading
  *
- * [RStaValueGenericConsumer] - like `RStaValueDispatcher`, more flexible, the best in a handler role
+ * [RStaValueGenericConsumer] - like `RStaValueDispatcher`, more flexible
  *
- * [RStaValueMapper] - value that is a map of (a result of a calculation upon) another value
+ * [RStaValueMapper] - value that is a map of (a result of a calculation) another value
  *
  * [RStaChainGenericItem] - like `RStaValueMapper`, more flexible
  *
  * `Value` type parameter indicates a type of [value].
- * `Event` type parameter indicates a type of change event.
+ * `Event` type parameter indicates a type of change event (type of `eventData` parameter that is passed to a listener).
+
  * See [RStaValue] and [RStaValueSource] about `strict` and `relaxed` (lazy) value sources.
  *
  * `net.rationalstargazer.events` package promotes the concept of "pulling data" (not "pushing data").
