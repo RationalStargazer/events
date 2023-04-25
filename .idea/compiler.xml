@@ -3,7 +3,19 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="Events.app" target="11" />
+      <module name="Events.events" target="1.8" />
       <module name="Events.events-android" target="11" />
+      <module name="Events.events-coroutines" target="1.8" />
+      <module name="Events.events-coroutines.main" target="1.8" />
+      <module name="Events.events-coroutines.test" target="1.8" />
+      <module name="Events.events.main" target="1.8" />
+      <module name="Events.events.test" target="1.8" />
+      <module name="Events.handling" target="1.8" />
+      <module name="Events.handling.main" target="1.8" />
+      <module name="Events.handling.test" target="1.8" />
+      <module name="Events.rationalstargazer" target="1.8" />
+      <module name="Events.rationalstargazer.main" target="1.8" />
+      <module name="Events.rationalstargazer.test" target="1.8" />
       <module name="RationalStargazer.app" target="11" />
       <module name="RationalStargazer.events-android" target="11" />
       <module name="Remote.app" target="11" />

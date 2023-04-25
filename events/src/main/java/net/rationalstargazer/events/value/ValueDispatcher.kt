@@ -4,7 +4,7 @@ import net.rationalstargazer.events.lifecycle.RStaLifecycle
 
 class RStaValueDispatcher<T> private constructor(
     private val handler: RStaValueGenericConsumer<T>
-) : RStaValue<T> by handler {
+) : RStaVariable<T>, RStaValue<T> by handler {
 
     constructor(
         lifecycle: RStaLifecycle,

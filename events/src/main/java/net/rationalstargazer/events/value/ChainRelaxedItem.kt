@@ -1,9 +1,8 @@
 package net.rationalstargazer.events.value
 
 import net.rationalstargazer.events.RStaEventSource
-import net.rationalstargazer.events.lifecycle.Lifecycles
 import net.rationalstargazer.events.lifecycle.RStaLifecycle
-import net.rationalstargazer.events.lifecycle.whileAll
+import net.rationalstargazer.events.lifecycle.RStaWhileAllLifecycle
 
 class RStaChainRelaxedItem<out Value>(
     private val base: RStaDynamicValue<Value, Any?>
@@ -13,13 +12,13 @@ class RStaChainRelaxedItem<out Value>(
         lifecycle: RStaLifecycle,
         upstreamChangeSource: RStaValueEventSource<Any?>,
         changeHandler: () -> Boolean,
-        valueGeneration: () -> Long,
+        valueVersion: () -> Long,
         function: () -> Value
     ) : this(
         lifecycle,
         upstreamChangeSource.asEventSource(),
         changeHandler,
-        valueGeneration,
+        valueVersion,
         function
     )
 
@@ -27,12 +26,13 @@ class RStaChainRelaxedItem<out Value>(
         lifecycle: RStaLifecycle,
         upstreamChangeSource: RStaEventSource<Any?>,
         changeHandler: () -> Boolean,
-        valueGeneration: () -> Long,
+        valueVersion: () -> Long,
         function: () -> Value
     ) : this(
         RStaDynamicValue(
-            Lifecycles.whileAll(lifecycle.coordinator, listOf(lifecycle, upstreamChangeSource.lifecycle)),
-            valueGeneration,
+            RStaWhileAllLifecycle(lifecycle, upstreamChangeSource.lifecycle),
+            false,
+            valueVersion,
             function
         )
     ) {
@@ -47,24 +47,25 @@ class RStaChainRelaxedItem<out Value>(
     constructor(
         lifecycle: RStaLifecycle,
         upstreamChangeSource: RStaValueEventSource<Any?>,
-        valueGeneration: () -> Long,
+        valueVersion: () -> Long,
         function: () -> Value
     ) : this(
         lifecycle,
         upstreamChangeSource.asEventSource(),
-        valueGeneration,
+        valueVersion,
         function
     )
 
     constructor(
         lifecycle: RStaLifecycle,
         upstreamChangeSource: RStaEventSource<Any?>,
-        valueGeneration: () -> Long,
+        valueVersion: () -> Long,
         function: () -> Value
     ) : this(
         RStaDynamicValue(
-            Lifecycles.whileAll(lifecycle.coordinator, listOf(lifecycle, upstreamChangeSource.lifecycle)),
-            valueGeneration,
+            RStaWhileAllLifecycle(lifecycle, upstreamChangeSource.lifecycle),
+            false,
+            valueVersion,
             function
         )
     ) {

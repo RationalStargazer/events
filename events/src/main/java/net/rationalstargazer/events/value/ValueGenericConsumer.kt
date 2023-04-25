@@ -18,8 +18,8 @@ class RStaValueGenericConsumer<Value>(
         val prevValue: T
     )
 
-    override fun checkValue(): Long {
-        return valueGeneration
+    override fun checkValueVersion(): Long {
+        return valueVersion
     }
 
     override var value: Value = defaultValue
@@ -37,7 +37,7 @@ class RStaValueGenericConsumer<Value>(
         val data = ChangeData(this.value, value)
 
         if (assignValueImmediately) {
-            valueGeneration++
+            valueVersion++
             this.value = value
         }
 
@@ -68,14 +68,14 @@ class RStaValueGenericConsumer<Value>(
     }
 
     private val listeners = RStaListenersRegistry<Value>(lifecycle)
-    private var valueGeneration: Long = 0
+    private var valueVersion: Long = 0
     private var consumeInProgress: Boolean = false
     private val consumeQueue: MutableList<ChangeData<Value>> = mutableListOf()
 
     private fun handleItem(data: ChangeData<Value>) {
         if (!lifecycle.finished) {
             if (!assignValueImmediately) {
-                valueGeneration++
+                valueVersion++
                 value = data.value
             }
 
@@ -83,7 +83,7 @@ class RStaValueGenericConsumer<Value>(
             listeners.enqueueEvent(data.value)
         } else {
             if (!assignValueImmediately && assignValueIfFinished) {
-                valueGeneration++
+                valueVersion++
                 value = data.value
             }
         }

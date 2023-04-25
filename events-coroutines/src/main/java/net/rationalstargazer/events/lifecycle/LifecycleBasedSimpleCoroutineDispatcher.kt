@@ -5,6 +5,5 @@ import net.rationalstargazer.events.lifecycle.RStaLifecycleMarker
 
 interface LifecycleBasedSimpleCoroutineDispatcher {
     val lifecycle: RStaLifecycleMarker
-    fun autoCancellableScope(): CoroutineScope?
     fun manuallyCancellableScope(): CoroutineScope?
 }

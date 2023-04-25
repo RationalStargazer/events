@@ -6,7 +6,8 @@ package net.rationalstargazer.events.lifecycle
  *
  * The result lifecycle is [RStaControlledLifecycle] so it can be finished at any time.
  */
-fun RStaLifecycles.inner(lifecycle: RStaLifecycleScope): RStaControlledLifecycle {
+@Suppress("FunctionName")
+fun RStaInnerLifecycle(lifecycle: RStaLifecycleScope): RStaControlledLifecycle {
     if (lifecycle.finished) {
         return RStaLifecycleDispatcher.Finished(lifecycle.coordinator)
     }

@@ -4,7 +4,7 @@ import kotlinx.coroutines.launch
 import net.rationalstargazer.events.lifecycle.LifecycleBasedSimpleCoroutineDispatcher
 import net.rationalstargazer.types.RStaImmutableList
 
-interface BaseMessageQueueHandler<Message> {
+interface RStaBaseMessageQueueHandler<Message> {
 
     val messages: List<Message>
 
@@ -15,10 +15,10 @@ interface BaseMessageQueueHandler<Message> {
     fun pause()
 }
 
-class BaseMessageQueueHandlerImpl<Message> constructor(
+class RStaBaseMessageQueueHandlerImpl<Message> constructor(
     private val coroutineDispatcher: LifecycleBasedSimpleCoroutineDispatcher,
     private val handler: suspend (Message) -> Unit
-) : BaseMessageQueueHandler<Message> {
+) : RStaBaseMessageQueueHandler<Message> {
 
     override var messages: List<Message> = emptyList()
         private set

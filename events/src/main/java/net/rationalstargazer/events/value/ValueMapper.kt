@@ -3,19 +3,20 @@ package net.rationalstargazer.events.value
 import net.rationalstargazer.events.lifecycle.RStaLifecycle
 
 class RStaValueMapper<out Value, in SourceValue> private constructor(
-    private val base: RStaChainGenericItem<Value, Value, SourceValue>
+    private val base: RStaGenericValue<Value, Value>
 ) : RStaValue<Value>, RStaGenericValue<Value, Value> by base {
 
     constructor(
         lifecycle: RStaLifecycle,
-        source: RStaGenericValue<SourceValue, SourceValue>,
+        source: RStaValue<SourceValue>,
         mapper: (SourceValue) -> Value
     ) : this(
         RStaChainGenericItem(
             lifecycle,
+            true,
             source,
             mapper,
-            source::checkValue,
+            source::checkValueVersion,
         ) {
             mapper(source.value)
         }
