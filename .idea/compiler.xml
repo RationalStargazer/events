@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="Events.app" target="11" />
+      <module name="Events.events" target="1.8" />
       <module name="Events.events-android" target="11" />
       <module name="Events.events-core" target="1.8" />
       <module name="Events.events-core.main" target="1.8" />
