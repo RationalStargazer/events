@@ -14,8 +14,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Events"
 include ':app'
-include ':events'
 include ':events-android'
+include ':events-core'
 include ':events-coroutines'
 include ':rationalstargazer'
 include ':handling'

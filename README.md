@@ -32,3 +32,5 @@ Pros of LiveData:
 - "Push event, pull data" concept ensures that all data is consistent regardless of complexity and interdependence (see [RStaGenericValue](events/src/main/java/net/rationalstargazer/events/value/GenericValue.kt) for details about "push event, pull data")
 
 - [RStaLifecycle](events/src/main/java/net/rationalstargazer/events/lifecycle/Lifecycle.kt) was implemented to be used in place of Android's Lifecycle. When lifecycle is finished standard implementations of [RStaEventSource] and [RStaValueEventSource] automatically remove their listeners. Also event (and value) sources can have their own separate lifecycle, after their lifecycle is finished listeners will also be removed.
+
+There is no maven repository as it is not ready for public release. To try `net.rationalstargazer.events` you may download source code and import `events-core` module to your project, it is cross-platform. `events-android` module contains Android-specific features, such as Android Looper-based [RStaAndroidLooperHandler](events/src/main/java/net/rationalstargazer/events/android/queue/EventsQueueDispatchers.kt) and JetPack's `Lifecycle` to `RStaLifecycle` adapter.
