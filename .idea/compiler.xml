@@ -5,12 +5,14 @@
       <module name="Events.app" target="11" />
       <module name="Events.events" target="1.8" />
       <module name="Events.events-android" target="11" />
-      <module name="Events.events-core" target="1.8" />
       <module name="Events.events-core.main" target="1.8" />
       <module name="Events.events-core.test" target="1.8" />
       <module name="Events.events-coroutines" target="1.8" />
       <module name="Events.events-coroutines.main" target="1.8" />
       <module name="Events.events-coroutines.test" target="1.8" />
+      <module name="Events.events-short" target="1.8" />
+      <module name="Events.events-short.main" target="1.8" />
+      <module name="Events.events-short.test" target="1.8" />
       <module name="Events.events.main" target="1.8" />
       <module name="Events.events.test" target="1.8" />
       <module name="Events.handling" target="1.8" />
