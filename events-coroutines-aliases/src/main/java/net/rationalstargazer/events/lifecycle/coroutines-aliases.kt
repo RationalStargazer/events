@@ -1,0 +1,5 @@
+package net.rationalstargazer.events.lifecycle
+
+typealias CoroutineLifecycle = RStaCoroutineLifecycle
+typealias LifecycleBasedCoroutineDispatcher = RStaLifecycleBasedCoroutineDispatcher
+typealias LifecycleBasedSimpleCoroutineDispatcher = RStaLifecycleBasedSimpleCoroutineDispatcher

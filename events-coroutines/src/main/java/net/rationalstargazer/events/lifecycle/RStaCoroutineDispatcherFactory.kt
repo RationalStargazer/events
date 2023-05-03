@@ -8,7 +8,7 @@ import kotlinx.coroutines.job
 import kotlin.coroutines.CoroutineContext
 
 object RStaCoroutineDispatcherFactory {
-    fun create(coroutineLifecycle: RStaCoroutineLifecycle): LifecycleBasedCoroutineDispatcher {
+    fun create(coroutineLifecycle: RStaCoroutineLifecycle): RStaLifecycleBasedCoroutineDispatcher {
         return LifecycleBasedCoroutineDispatcherImpl(coroutineLifecycle.lifecycle, coroutineLifecycle.coroutineContext)
     }
 }
@@ -16,7 +16,7 @@ object RStaCoroutineDispatcherFactory {
 private class LifecycleBasedCoroutineDispatcherImpl(
     override val lifecycle: RStaLifecycle,
     context: CoroutineContext
-) : LifecycleBasedCoroutineDispatcher {
+) : RStaLifecycleBasedCoroutineDispatcher {
 
     private val scope = CoroutineScope(context + SupervisorJob())
 

@@ -2,7 +2,7 @@ package net.rationalstargazer.events.lifecycle
 
 import kotlin.coroutines.CoroutineContext
 
-class RStaCoroutineLifecycle(
+data class RStaCoroutineLifecycle(
     val lifecycle: RStaLifecycle,
     val coroutineContext: CoroutineContext
 )

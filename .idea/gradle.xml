@@ -13,9 +13,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/events" />
+            <option value="$PROJECT_DIR$/events-aliases" />
             <option value="$PROJECT_DIR$/events-android" />
             <option value="$PROJECT_DIR$/events-coroutines" />
-            <option value="$PROJECT_DIR$/events-short" />
+            <option value="$PROJECT_DIR$/events-coroutines-aliases" />
             <option value="$PROJECT_DIR$/handling" />
             <option value="$PROJECT_DIR$/rationalstargazer" />
           </set>

@@ -4,13 +4,21 @@
     <bytecodeTargetLevel target="1.7">
       <module name="Events.app" target="11" />
       <module name="Events.events" target="1.8" />
+      <module name="Events.events-aliases" target="1.8" />
+      <module name="Events.events-aliases.main" target="1.8" />
+      <module name="Events.events-aliases.test" target="1.8" />
       <module name="Events.events-android" target="11" />
+      <module name="Events.events-android-aliases" target="1.8" />
+      <module name="Events.events-android-aliases.main" target="1.8" />
+      <module name="Events.events-android-aliases.test" target="1.8" />
       <module name="Events.events-core.main" target="1.8" />
       <module name="Events.events-core.test" target="1.8" />
       <module name="Events.events-coroutines" target="1.8" />
+      <module name="Events.events-coroutines-aliases" target="1.8" />
+      <module name="Events.events-coroutines-aliases.main" target="1.8" />
+      <module name="Events.events-coroutines-aliases.test" target="1.8" />
       <module name="Events.events-coroutines.main" target="1.8" />
       <module name="Events.events-coroutines.test" target="1.8" />
-      <module name="Events.events-short" target="1.8" />
       <module name="Events.events-short.main" target="1.8" />
       <module name="Events.events-short.test" target="1.8" />
       <module name="Events.events.main" target="1.8" />

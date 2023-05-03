@@ -1,7 +1,7 @@
 package net.rationalstargazer.logic
 
 import kotlinx.coroutines.launch
-import net.rationalstargazer.events.lifecycle.LifecycleBasedSimpleCoroutineDispatcher
+import net.rationalstargazer.events.lifecycle.RStaLifecycleBasedSimpleCoroutineDispatcher
 import net.rationalstargazer.types.RStaImmutableList
 
 interface RStaBaseMessageQueueHandler<Message> {
@@ -16,7 +16,7 @@ interface RStaBaseMessageQueueHandler<Message> {
 }
 
 class RStaBaseMessageQueueHandlerImpl<Message> constructor(
-    private val coroutineDispatcher: LifecycleBasedSimpleCoroutineDispatcher,
+    private val coroutineDispatcher: RStaLifecycleBasedSimpleCoroutineDispatcher,
     private val handler: suspend (Message) -> Unit
 ) : RStaBaseMessageQueueHandler<Message> {
 
