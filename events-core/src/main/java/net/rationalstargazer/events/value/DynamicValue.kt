@@ -56,7 +56,7 @@ class RStaDynamicValue<out Value : Event, Event>(
     }
 
     override fun listen(
-        invoke: RStaValueEventSource.Invoke,
+        invoke: RStaListenerInvoke,
         lifecycle: RStaLifecycle,
         listener: (eventData: Event) -> Unit
     ) {

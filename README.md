@@ -35,4 +35,4 @@ Pros of LiveData:
 
 There is no maven repository as it is not ready for public release. To try `net.rationalstargazer.events` you may download source code and import `events-core` module to your project, it is cross-platform. `events-android` module contains Android-specific features, such as Android Looper-based [RStaAndroidLooperHandler](events-android/src/main/java/net/rationalstargazer/events/android/queue/EventsQueueDispatchers.kt) and JetPack's `Lifecycle` to `RStaLifecycle` adapter.
 
-Alternatively if you decided to use it as your primary event-handling framework you can use module `events` instead of `events-core`. The module has type aliases for all common types of the framework without "RSta" prefix (RStaValue -> Value, RStaLifecycle -> Lifecycle) to make them look more natural.  
+Module `events` has type aliases for all common types of the framework without "RSta" prefix (RStaValue -> Value, RStaLifecycle -> Lifecycle) if you prefer it this way.  

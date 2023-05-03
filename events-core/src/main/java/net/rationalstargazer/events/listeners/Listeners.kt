@@ -4,7 +4,7 @@ import net.rationalstargazer.events.Container
 import net.rationalstargazer.events.RStaListener
 import net.rationalstargazer.events.lifecycle.RStaLifecycle
 import net.rationalstargazer.events.lifecycle.RStaSuspendableLifecycle
-import net.rationalstargazer.events.value.RStaValueEventSource
+import net.rationalstargazer.events.value.RStaListenerInvoke
 
 // class ListenerSkipWhenInactive<T>(
 //     private val lifecycle: RStaSuspendableLifecycle,
@@ -56,6 +56,6 @@ class RStaValueConsumer<T> constructor(
 	}
 	
 	init {
-		lifecycle.active.listen(RStaValueEventSource.Invoke.No, lifecycle.scope, ::activeStateListener)
+		lifecycle.active.listen(RStaListenerInvoke.No, lifecycle.scope, ::activeStateListener)
     }
 }

@@ -1,0 +1,4 @@
+package net.rationalstargazer.events.queue
+
+typealias QueueGenericHandler = RStaQueueGenericHandler
+typealias EventsQueueDispatcher = RStaEventsQueueDispatcher

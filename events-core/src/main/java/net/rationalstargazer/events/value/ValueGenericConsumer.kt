@@ -56,7 +56,7 @@ class RStaValueGenericConsumer<Value>(
     }
 
     override fun listen(
-        invoke: RStaValueEventSource.Invoke,
+        invoke: RStaListenerInvoke,
         lifecycle: RStaLifecycle,
         listener: (eventData: Value) -> Unit
     ) {
